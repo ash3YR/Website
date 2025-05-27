@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Portfolio</title>
+    <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-title">
+                <span>📟</span>
+                <span>Terminal Portfolio v2.1.0 - Alpine Linux x86_64</span>
+            </div>
+            <div class="terminal-controls">
+                <div class="control-btn minimize"></div>
+                <div class="control-btn maximize"></div>
+                <div class="control-btn close"></div>
+            </div>
+        </div>
+
+        <div class="boot-screen" id="bootScreen">
+            <div>Booting Portfolio System...</div>
+            <div>Loading kernel modules... <span class="loading"></span></div>
+            <div>Initializing filesystem...</div>
+            <div>Starting network services...</div>
+            <div>Mounting user data...</div>
+            <div>Loading portfolio applications...</div>
+            <div>System ready.</div>
+            <div style="margin-top: 20px; color: #4a90e2;">
+Welcome to Portfolio Linux v2.1.0<br>
+Built on Alpine Linux (x86_64)<br>
+Kernel 5.15.0-portfolio-custom<br><br>
+Type 'help' to get started.
+            </div>
+        </div>
+
+        <div class="terminal-content hidden" id="terminalContent">
+            <div class="ascii-art">
+    ____            _    __       _ _       
+   |  _ \ ___  _ __| |_ / _| ___ | (_) ___  
+   | |_) / _ \| '__| __| |_ / _ \| | |/ _ \ 
+   |  __/ (_) | |  | |_|  _| (_) | | | (_) |
+   |_|   \___/|_|   \__|_|  \___/|_|_|\___/ 
+                                           
+        Welcome to my interactive terminal portfolio!
+            </div>
+
+            <div class="command-line">
+                <span class="prompt">guest@portfolio:~$</span>
+                <span class="command">whoami</span>
+            </div>
+            <div class="output">
+John Doe - Full Stack Developer<br>
+Location: San Francisco, CA<br>
+Status: Available for new opportunities<br>
+Interests: Linux, JavaScript, Python, DevOps
+            </div>
+
+            <div class="help-section">
+                <strong>Available Commands:</strong><br>
+                • <code>ls</code> - List files and directories<br>
+                • <code>cat [file]</code> - Display file contents<br>
+                • <code>cd [directory]</code> - Change directory<br>
+                • <code>./portfolio</code> - Run portfolio application<br>
+                • <code>skills</code> - Show technical skills<br>
+                • <code>projects</code> - List all projects<br>
+                • <code>contact</code> - Get contact information<br>
+                • <code>resume</code> - Display resume<br>
+                • <code>clear</code> - Clear terminal<br>
+                • <code>help</code> - Show this help message<br>
+                • <code>neofetch</code> - System information<br>
+                • <code>history</code> - Command history
+            </div>
+
+            <div id="commandHistory"></div>
+
+            <div class="input-line">
+                <span class="prompt">guest@portfolio:~$</span>
+                <input type="text" class="terminal-input" id="terminalInput" autofocus>
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="terminal.js"></script>
+</body>
+</html> 
