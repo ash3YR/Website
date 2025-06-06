@@ -1,1 +1,3 @@
 ⚠ Project still under construction.....
+
+Some issues - terminal button styling
