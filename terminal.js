@@ -375,4 +375,268 @@ function createMatrixRain() {
     setInterval(draw, 100);
 }
 
-createMatrixRain(); 
+createMatrixRain();
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Loading screen handler
+    const loadingScreen = document.getElementById('loadingScreen');
+    
+    // Replace the date placeholder with actual date
+    const lastLogin = loadingScreen.querySelector('.loading-content div:first-child');
+    lastLogin.textContent = `Last login: ${new Date().toLocaleString()}`;
+    
+    // Hide loading screen after delay
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        // Initialize terminal
+        new Terminal();
+    }, 2000);
+
+    class Terminal {
+        constructor() {
+            this.terminal = document.getElementById('terminal');
+            this.output = document.getElementById('output');
+            this.input = document.querySelector('.terminal-input');
+            this.cursor = document.querySelector('.cursor');
+            this.commandHistory = [];
+            this.historyIndex = -1;
+
+            // Bind methods
+            this.handleInput = this.handleInput.bind(this);
+            this.handleKeyDown = this.handleKeyDown.bind(this);
+            this.updateCursorPosition = this.updateCursorPosition.bind(this);
+
+            // Event listeners
+            this.input.addEventListener('keydown', this.handleKeyDown);
+            this.input.addEventListener('input', this.updateCursorPosition);
+            this.input.addEventListener('click', this.updateCursorPosition);
+            this.input.addEventListener('keyup', this.updateCursorPosition);
+
+            // Initial focus
+            this.input.focus();
+
+            // Show welcome message and initial commands
+            this.showWelcomeMessage();
+
+            // Initial cursor position
+            this.updateCursorPosition();
+
+            // Keep focus on input
+            document.addEventListener('click', () => {
+                this.input.focus();
+            });
+        }
+
+        updateCursorPosition() {
+            requestAnimationFrame(() => {
+                const inputRect = this.input.getBoundingClientRect();
+                const cursorPosition = this.input.selectionStart;
+                const textBeforeCursor = this.input.value.substring(0, cursorPosition);
+                
+                // Create a temporary span to measure text width
+                const temp = document.createElement('span');
+                temp.style.font = getComputedStyle(this.input).font;
+                temp.style.visibility = 'hidden';
+                temp.style.position = 'absolute';
+                temp.textContent = textBeforeCursor;
+                document.body.appendChild(temp);
+                
+                // Calculate cursor position
+                const cursorOffset = temp.offsetWidth;
+                document.body.removeChild(temp);
+
+                // Update cursor position
+                this.cursor.style.left = `${cursorOffset}px`;
+            });
+        }
+
+        showWelcomeMessage() {
+            // Add welcome ASCII art
+            const welcomeArt = `
+ __          __  _                            _ 
+ \\ \\        / / | |                          | |
+  \\ \\  /\\  / /__| | ___ ___  _ __ ___   ___ | |
+   \\ \\/  \\/ / _ \\ |/ __/ _ \\| '_ \` _ \\ / _ \\| |
+    \\  /\\  /  __/ | (_| (_) | | | | | |  __/_|
+     \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___(_)
+                                                
+        Welcome to my interactive terminal!
+`;
+            const welcomeDiv = document.createElement('div');
+            welcomeDiv.className = 'welcome-text';
+            welcomeDiv.style.color = 'var(--terminal-prompt)';
+            welcomeDiv.style.marginBottom = '1rem';
+            welcomeDiv.style.whiteSpace = 'pre';
+            welcomeDiv.textContent = welcomeArt;
+            this.output.appendChild(welcomeDiv);
+
+            // Show whoami command
+            this.addToOutput('whoami', this.commands.whoami());
+
+            // Add some spacing
+            const spacer = document.createElement('div');
+            spacer.style.height = '0.5rem';
+            this.output.appendChild(spacer);
+
+            // Show help command
+            this.addToOutput('help', this.commands.help());
+
+            // Add to command history
+            this.commandHistory.unshift('help');
+            this.commandHistory.unshift('whoami');
+        }
+
+        addToOutput(command, output) {
+            // Command line
+            const commandLine = document.createElement('div');
+            commandLine.className = 'output-line';
+            commandLine.innerHTML = `<span class="prompt">guest@portfolio:~$</span><span class="command">${command}</span>`;
+            this.output.appendChild(commandLine);
+
+            // Command output
+            if (output) {
+                const outputText = document.createElement('div');
+                outputText.className = 'output-text';
+                outputText.textContent = output;
+                this.output.appendChild(outputText);
+            }
+
+            // Scroll to bottom
+            this.terminal.scrollTop = this.terminal.scrollHeight;
+        }
+
+        commands = {
+            help: () => `Available Commands:
+• ls - List files and directories
+• cat [file] - Display file contents
+• cd [directory] - Change directory
+• ./portfolio - Run portfolio application
+• skills - Show technical skills
+• projects - List all projects
+• contact - Get contact information
+• resume - Display resume
+• clear - Clear terminal
+• help - Show this help message
+• neofetch - System information
+• history - Command history`,
+
+            whoami: () => `Yash - Full Stack Developer
+Location: San Francisco, CA
+Status: Available for opportunities
+Interests: Linux, JavaScript, Python, DevOps`,
+
+            skills: () => `Technical Skills:
+
+Languages:
+• JavaScript/TypeScript
+• Python
+• HTML/CSS
+• SQL
+
+Frameworks & Libraries:
+• React.js
+• Node.js
+• Express.js
+• Next.js
+• TailwindCSS
+
+Tools & Technologies:
+• Git
+• Docker
+• AWS
+• Linux
+• MongoDB`,
+
+            projects: () => `Notable Projects:
+
+1. SafeBrowse AI
+   - Custom-built PyQt browser with AI-based profanity detection
+   - Real-time content filtering
+   - Optimized performance and security
+
+2. WeatherSense
+   - IoT-based weather monitoring system
+   - ESP8266 & various sensors integration
+   - ML-based weather prediction
+
+3. DermaScan AI
+   - Deep learning powered diagnostic tool
+   - 92% validation accuracy
+   - Optimized for clinical use`,
+
+            contact: () => `Contact Information:
+
+Email: yash030m@gmail.com
+LinkedIn: linkedin.com/in/yash
+GitHub: github.com/yash
+Twitter: @yash`,
+
+            clear: () => {
+                this.output.innerHTML = '';
+                return '';
+            },
+
+            neofetch: () => `
+                    Terminal Portfolio v2.1.0
+                    ------------------------
+                    OS: Portfolio Linux x86_64
+                    Shell: portfolio-shell 2.1.0
+                    Theme: Dark
+                    Terminal: xterm-256color
+                    CPU: JavaScript V8
+                    Memory: Infinite
+                    Uptime: Since you opened`,
+
+            history: () => this.commandHistory.join('\n')
+        };
+
+        handleInput(command) {
+            command = command.trim();
+            if (!command) return;
+
+            // Add to history
+            this.commandHistory.unshift(command);
+            this.historyIndex = -1;
+
+            // Show command in output
+            this.addToOutput(command, this.commands[command] ? this.commands[command]() : `Command not found: ${command}`);
+
+            // Clear input and update cursor
+            this.input.value = '';
+            this.updateCursorPosition();
+        }
+
+        handleKeyDown(e) {
+            if (e.key === 'Enter') {
+                this.handleInput(this.input.value);
+            }
+            else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (this.historyIndex < this.commandHistory.length - 1) {
+                    this.historyIndex++;
+                    this.input.value = this.commandHistory[this.historyIndex];
+                    // Move cursor to end
+                    setTimeout(() => {
+                        this.input.selectionStart = this.input.selectionEnd = this.input.value.length;
+                        this.updateCursorPosition();
+                    }, 0);
+                }
+            }
+            else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (this.historyIndex > 0) {
+                    this.historyIndex--;
+                    this.input.value = this.commandHistory[this.historyIndex];
+                }
+                else if (this.historyIndex === 0) {
+                    this.historyIndex = -1;
+                    this.input.value = '';
+                }
+                this.updateCursorPosition();
+            }
+            else if (e.key === 'Tab') {
+                e.preventDefault();
+            }
+        }
+    }
+}); 

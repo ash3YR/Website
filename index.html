@@ -3,39 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Yash - Web Developer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#works">Works</a>
-            <a href="#about">About</a>
-            <a href="#faq">FAQ</a>
+    <div class="stars-container">
+        <div class="star" style="--i:1"></div>
+        <div class="star" style="--i:2"></div>
+        <div class="star" style="--i:3"></div>
+        <div class="star" style="--i:4"></div>
+        <div class="star" style="--i:5"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#works">Works</a>
+                    <a href="#about">About</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Available for opportunities
+            </div>
+            
+            <div class="hero-content">
+                <h1>Welcome to<br>my digital humble abode</h1>
+                <p class="hero-subtitle">I'm an independent designer.<br>
+                My interest lies in brand experience, and user experience.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">👋 Let's talk</a>
+                    <a href="terminal.html" class="btn btn-secondary" id="openTerminal">Open Terminal <span class="arrow">↗</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Overlay -->
+        <div class="overlay hidden" id="terminalOverlay">
+            <div class="overlay-content">
+                <div class="terminal-header">
+                    <div class="window-controls">
+                        <button class="control-btn close-btn" id="closeTerminal"></button>
+                        <button class="control-btn minimize-btn"></button>
+                        <button class="control-btn maximize-btn"></button>
+                    </div>
+                    <div class="terminal-title">terminal.io/<></div>
+                </div>
+                <iframe src="terminal.html" class="terminal-frame" id="terminalFrame"></iframe>
+            </div>
         </div>
-    </nav>
 
-    <section class="hero">
-        <div class="decorative-star star-1"></div>
-        <div class="decorative-star star-2"></div>
-        <div class="decorative-star star-3"></div>
-        <div class="decorative-star star-4"></div>
+        <section id="tech-stack" class="tech-stack">
+            <h2>My Tech Stack</h2>
+            <p>Technologies I've been working with recently</p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="Sass">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                </div>
+            </div>
+        </section>
 
-        <img src="avatar.png" alt="Profile Avatar" class="avatar">
-        
-        <div class="status">
-            <span class="status-dot"></span>
-            <span class="status-text">Available for opportunities</span>
+        <section id="projects" class="projects">
+            <h2>My Projects</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Lead Software Engineer at Google</h3>
+                        <span class="project-date">Nov 2019 - Present</span>
+                    </div>
+                    <p class="project-description">
+                        As a Senior Software Engineer at Google, I played a pivotal role in developing innovative solutions for Google's core search algorithms. Collaborating with a dynamic team of engineers, I contributed to the enhancement of search accuracy and efficiency, optimizing user experiences for millions of users worldwide.
+                    </p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Software Engineer at Youtube</h3>
+                        <span class="project-date">Jan 2017 - Oct 2019</span>
+                    </div>
+                    <p class="project-description">
+                        At Youtube, I served as a Software Engineer, focusing on the design and implementation of backend systems for the social media giant's dynamic platform. Working on projects that involved large-scale data processing and user engagement features, I leveraged my expertise to ensure seamless functionality and scalability.
+                    </p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Junior Software Engineer at Apple</h3>
+                        <span class="project-date">Jan 2016 - Dec 2017</span>
+                    </div>
+                    <p class="project-description">
+                        During my tenure at Apple, I held the role of Software Architect, where I played a key role in shaping the architecture of mission-critical software projects. Responsible for designing scalable and efficient systems, I provided technical leadership to a cross-functional team.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <div class="contact-grid">
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm">
+                            <input type="text" placeholder="Your name" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="url" placeholder="Your website (if exists)">
+                            <textarea placeholder="How can I help?" required></textarea>
+                            <div class="form-footer">
+                                <button type="submit" class="submit-btn">Get in Touch</button>
+                                <div class="social-buttons">
+                                    <a href="https://github.com" target="_blank" class="social-btn">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" class="social-btn">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                                    </a>
+                                    <a href="https://twitter.com" target="_blank" class="social-btn">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter">
+                                    </a>
+                                    <a href="https://discord.com" target="_blank" class="social-btn">
+                                        <img src="discord-icon.svg" alt="Discord">
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-header">
+                            <h2>Let's <span class="highlight">talk</span> for</h2>
+                            <h2>Something special</h2>
+                            <p>I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.</p>
+                            <a href="mailto:yash030m@gmail.com" class="contact-email">yash030m@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">yzsh.dev</div>
+                    <p class="footer-tagline">Building digital products, brands, and experiences.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Pages</h4>
+                        <nav>
+                            <a href="#home">Home</a>
+                            <a href="#works">Works</a>
+                            <a href="#about">About</a>
+                            <a href="#contact">Contact</a>
+                        </nav>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Social</h4>
+                        <nav>
+                            <a href="https://github.com" target="_blank">Github</a>
+                            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                            <a href="https://twitter.com" target="_blank">Twitter</a>
+                            <a href="https://discord.com" target="_blank">Discord</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 Yash. All rights reserved.
+                </div>
+                <div class="footer-extra">
+                    <a href="/privacy">Privacy Policy</a>
+                    <span class="separator">•</span>
+                    <a href="/terms">Terms of Service</a>
+                </div>
+            </div>
         </div>
-
-        <h1>Welcome to<br>my digital humble abode</h1>
-        <p class="subtitle">I'm an independent designer.<br>My interest lies in brand experience, and user experience.</p>
-
-        <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">👋 Let's talk</a>
-            <a href="#template" class="btn btn-secondary">Get Template ↗</a>
-        </div>
-    </section>
+    </footer>
+    <script src="script.js"></script>
+    <script src="sparks.js"></script>
 </body>
 </html>
