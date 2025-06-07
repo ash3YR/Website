@@ -6,7 +6,7 @@ let historyIndex = -1;
 const filesystem = {
     '~': {
         'README.md': 'Welcome to my portfolio! Use the available commands to explore my work.',
-        'about.txt': `John Doe - Full Stack Developer
+        'about.txt': `Yash Rathore - Dev
 
 I'm a passionate developer with 5+ years of experience building web applications and systems. I love working with modern technologies and solving complex problems.
 
@@ -14,7 +14,7 @@ Skills:
 - Frontend: React, Vue.js, JavaScript, TypeScript, CSS
 - Backend: Node.js, Python, Go, PostgreSQL, MongoDB
 - DevOps: Docker, Kubernetes, AWS, CI/CD
-- Tools: Git, Linux, VS Code, Vim
+- Tools: Git, Linux, VS Code, Figma
 
 Currently looking for new opportunities where I can contribute to meaningful projects and continue growing as a developer.`,
         'projects/': 'directory',
@@ -23,12 +23,12 @@ Currently looking for new opportunities where I can contribute to meaningful pro
 
 Email: john.doe@email.com
 LinkedIn: https://linkedin.com/in/johndoe
-GitHub: https://github.com/johndoe
-Website: https://johndoe.dev
-Phone: +1 (555) 123-4567
+GitHub: https://github.com/ash3YR
+Website: https://idk.dev
+Phone: N/A at the moment
 
 Feel free to reach out! I'm always interested in discussing new opportunities or interesting projects.`,
-        'resume.pdf': 'Binary file - John_Doe_Resume.pdf',
+        'resume.pdf': 'Binary file - Yash.pdf',
         'portfolio': 'executable'
     },
     '~/projects': {
@@ -95,7 +95,6 @@ function executeCommand(command) {
 <div class="help-section">
 <strong>Available Commands:</strong><br>
 • <code>ls</code> - List files and directories<br>
-• <code>cat [file]</code> - Display file contents<br>
 • <code>cd [directory]</code> - Change directory<br>
 • <code>./portfolio</code> - Run portfolio application<br>
 • <code>skills</code> - Show technical skills<br>
@@ -106,6 +105,8 @@ function executeCommand(command) {
 • <code>neofetch</code> - System information<br>
 • <code>whoami</code> - User information<br>
 • <code>history</code> - Command history
+• <code>future</code> - Planned Future Updates
+
 </div>`;
             break;
             
@@ -168,6 +169,13 @@ function executeCommand(command) {
 Location: San Francisco, CA<br>
 Status: Available for new opportunities<br>
 Interests: Linux, JavaScript, Python, DevOps`;
+            break;
+            
+        case 'future':
+            output = `Working on a ML Research Paper<br>
+Hopefully it works out<br>
+Also will be updating the terminal functionality on this<br>
+Blogs coming soon<br>`;
             break;
             
         case 'skills':
@@ -400,6 +408,51 @@ document.addEventListener('DOMContentLoaded', () => {
             this.cursor = document.querySelector('.cursor');
             this.commandHistory = [];
             this.historyIndex = -1;
+            this.currentDirectory = '~';
+
+            // Define filesystem structure
+            this.filesystem = {
+                '~': {
+                    'README.md': 'Welcome to my portfolio! Use the available commands to explore my work.',
+                    'about.txt': `Yash - Full Stack Developer
+
+I'm a passionate developer with experience building web applications and systems. I love working with modern technologies and solving complex problems.
+
+Skills:
+- Frontend: React, Vue.js, JavaScript, TypeScript, CSS
+- Backend: Node.js, Python, Go, PostgreSQL, MongoDB
+- DevOps: Docker, Kubernetes, AWS, CI/CD
+- Tools: Git, Linux, VS Code, Vim
+
+Currently looking for new opportunities where I can contribute to meaningful projects and continue growing as a developer.`,
+                    'projects/': 'directory',
+                    'skills/': 'directory',
+                    'contact.txt': `Contact Information:
+
+Email: yash030m@gmail.com
+LinkedIn: https://linkedin.com/in/yash-rathore-909768332/
+GitHub: https://github.com/ash3YR
+Website: https://yash.dev
+Phone: +1 (555) 123-4567
+
+Feel free to reach out! I'm always interested in discussing new opportunities or interesting projects.`,
+                    'resume.pdf': 'Binary file - Yash_Resume.pdf',
+                    'portfolio': 'executable'
+                },
+                '~/projects': {
+                    '../': 'directory',
+                    'ecommerce-platform/': 'directory',
+                    'task-manager/': 'directory',
+                    'weather-app/': 'directory',
+                    'portfolio-site/': 'directory'
+                },
+                '~/skills': {
+                    '../': 'directory',
+                    'frontend.json': '{"react": 90, "javascript": 95, "css": 85, "typescript": 80}',
+                    'backend.json': '{"nodejs": 88, "python": 82, "databases": 75, "apis": 90}',
+                    'devops.json': '{"docker": 70, "aws": 65, "linux": 85, "git": 95}'
+                }
+            };
 
             // Bind methods
             this.handleInput = this.handleInput.bind(this);
@@ -490,14 +543,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Command line
             const commandLine = document.createElement('div');
             commandLine.className = 'output-line';
-            commandLine.innerHTML = `<span class="prompt">guest@portfolio:~$</span><span class="command">${command}</span>`;
+            commandLine.innerHTML = `<span class="prompt">guest@portfolio:${this.currentDirectory}$</span><span class="command">${command}</span>`;
             this.output.appendChild(commandLine);
 
             // Command output
             if (output) {
                 const outputText = document.createElement('div');
                 outputText.className = 'output-text';
-                outputText.textContent = output;
+                outputText.innerHTML = output;
                 this.output.appendChild(outputText);
             }
 
@@ -505,11 +558,9 @@ document.addEventListener('DOMContentLoaded', () => {
             this.terminal.scrollTop = this.terminal.scrollHeight;
         }
 
-        commands = {
+        commands = {                                // ADD cd command
             help: () => `Available Commands:
 • ls - List files and directories
-• cat [file] - Display file contents
-• cd [directory] - Change directory
 • ./portfolio - Run portfolio application
 • skills - Show technical skills
 • projects - List all projects
@@ -518,7 +569,8 @@ document.addEventListener('DOMContentLoaded', () => {
 • clear - Clear terminal
 • help - Show this help message
 • neofetch - System information
-• history - Command history`,
+• history - Command history
+• future - stuff I am working on`,
 
             whoami: () => `Yash - Full Stack Developer
 Location: San Francisco, CA
@@ -545,7 +597,9 @@ Tools & Technologies:
 • Docker
 • AWS
 • Linux
-• MongoDB`,
+• MongoDB
+• Figma
+plus some more stuff`,
 
             projects: () => `Notable Projects:
 
@@ -567,9 +621,13 @@ Tools & Technologies:
             contact: () => `Contact Information:
 
 Email: yash030m@gmail.com
-LinkedIn: linkedin.com/in/yash
-GitHub: github.com/yash
-Twitter: @yash`,
+LinkedIn: linkedin.com/in/yash-rathore-909768332
+GitHub: github.com/ash3YR
+Twitter: not now`,
+            future: () => `Working on a ML Research Paper
+Hopefully it works out
+Also will be updating the terminal functionality on this
+Blogs coming soon`,
 
             clear: () => {
                 this.output.innerHTML = '';
@@ -577,15 +635,24 @@ Twitter: @yash`,
             },
 
             neofetch: () => `
-                    Terminal Portfolio v2.1.0
-                    ------------------------
-                    OS: Portfolio Linux x86_64
-                    Shell: portfolio-shell 2.1.0
-                    Theme: Dark
-                    Terminal: xterm-256color
-                    CPU: JavaScript V8
-                    Memory: Infinite
-                    Uptime: Since you opened`,
+                        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀        OS: Linux x86_64 (jk..)
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀        Host: Terminal Portfolio v2.1.0
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⠿⠟⠛⠻⣿⠆⠀⠀⠀⠀        Kernel: 5.15.0-portfolio-custom
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣆⣀⣀⠀⣿⠂⠀⠀⠀⠀        Uptime: ${Math.floor(Date.now() / 60000)} mins
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠻⣿⣿⣿⠅⠛⠋⠈⠀⠀⠀⠀⠀        Packages: 42 (npm), 18 (pip)
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢼⣿⣿⣿⣃⠠⠀⠀⠀⠀⠀⠀⠀        Shell: bash 5.1.16
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣟⡿⠃⠀⠀⠀⠀⠀⠀⠀        Resolution: ${window.innerWidth}x${window.innerHeight}
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣛⣛⣫⡄⠀⢸⣦⣀⠀⠀⠀⠀        DE: Terminal
+⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⡆⠸⣿⣿⣿⡷⠂⠨⣿⣿⣿⣿⣶⣦⣤⣀    WM: Awesome
+⠀⠀⠀⠀⣤⣾⣿⣿⣿⣿⡇⢀⣿⡿⠋⠁⢀⡶⠪⣉⢸⣿⣿⣿⣿⣿⣇  Theme: Never Gonna Give You Up
+⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⡏⢸⣿⣷⣿⣿⣷⣦⡙⣿⣿⣿⣿⣿⡏  Icons: Awesome Font
+⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣇⢸⣿⣿⣿⣿⣿⣷⣦⣿⣿⣿⣿⣿⡇  Terminal: Custom Terminal
+⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇  CPU: Intel i7-9700K (8) @ 3.6GHz
+⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄ Memory: 2048MiB / 16384MiB
+⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿  
+⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿  
+⠀⠀⠀⢹⣿⣵⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡁     
+`,
 
             history: () => this.commandHistory.join('\n')
         };
@@ -598,8 +665,107 @@ Twitter: @yash`,
             this.commandHistory.unshift(command);
             this.historyIndex = -1;
 
+            // Parse command and arguments
+            const [cmd, ...args] = command.split(' ');
+
+            // Execute command
+            let output = '';
+            switch(cmd) {
+                case 'ls':
+                    const currentPath = this.currentDirectory;
+                    const contents = this.filesystem[currentPath];
+                    if (contents) {
+                        output = '<div class="file-listing">';
+                        Object.keys(contents).forEach(item => {
+                            const className = contents[item] === 'directory' ? 'directory' : 
+                                           contents[item] === 'executable' ? 'executable' : '';
+                            output += `<div class="file-item ${className}">${item}</div>`;
+                        });
+                        output += '</div>';
+                    } else {
+                        output = 'Directory not found.';
+                    }
+                    break;
+
+                case 'cd':
+                    if (args[0]) {
+                        if (args[0] === '..') {
+                            this.currentDirectory = '~';
+                        } else if (args[0].startsWith('~/')) {
+                            const newPath = args[0];
+                            if (this.filesystem[newPath]) {
+                                this.currentDirectory = newPath;
+                            } else {
+                                output = `cd: ${args[0]}: No such file or directory`;
+                            }
+                        } else {
+                            const newPath = this.currentDirectory === '~' ? `~/${args[0]}` : `${this.currentDirectory}/${args[0]}`;
+                            if (this.filesystem[newPath]) {
+                                this.currentDirectory = newPath;
+                            } else {
+                                output = `cd: ${args[0]}: No such file or directory`;
+                            }
+                        }
+                    } else {
+                        this.currentDirectory = '~';
+                    }
+                    break;
+
+                case 'cat':
+                    if (args[0]) {
+                        const currentPath = this.currentDirectory;
+                        const file = this.filesystem[currentPath] && this.filesystem[currentPath][args[0]];
+                        if (file && file !== 'directory' && file !== 'executable') {
+                            output = `<pre>${file}</pre>`;
+                        } else {
+                            output = `cat: ${args[0]}: No such file or directory`;
+                        }
+                    } else {
+                        output = 'Usage: cat [filename]';
+                    }
+                    break;
+
+                case 'help':
+                    output = this.commands.help();
+                    break;
+
+                case 'whoami':
+                    output = this.commands.whoami();
+                    break;
+
+                case 'skills':
+                    output = this.commands.skills();
+                    break;
+
+                case 'projects':
+                    output = this.commands.projects();
+                    break;
+
+                case 'contact':
+                    output = this.commands.contact();
+                    break;
+
+                case 'clear':
+                    this.output.innerHTML = '';
+                    return;
+
+                case 'neofetch':
+                    output = this.commands.neofetch();
+                    break;
+
+                case 'history':
+                    output = this.commandHistory.join('\n');
+                    break;
+                case 'future':
+                    output = this.commands.future();
+                    break;
+
+                default:
+                    output = `Command not found: ${cmd}. Type 'help' to see available commands.Report any issues on GitHub pls.`;
+            }
+
             // Show command in output
-            this.addToOutput(command, this.commands[command] ? this.commands[command]() : `Command not found: ${command}`);
+            this.addToOutput(command, output);
 
             // Clear input and update cursor
             this.input.value = '';

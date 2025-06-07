@@ -505,7 +505,7 @@ header {
 .projects {
   padding: 8rem 2rem;
   background: var(--bg-color);
-  max-width: 1000px;
+  max-width: 978px;
 }
 
 .projects h2 {
@@ -832,11 +832,11 @@ footer {
 
 /* Contact Section */
 .contact {
-  ;
+  
   padding: 0 0 2.5rem 0;
 }
 .contact-container {
-    max-width: 1000px;
+    max-width: 2000px;
     margin: 0 auto;
   padding: 0 0 2rem 0;
 }
@@ -1055,15 +1055,15 @@ main > section h2, .contact-title {
 @media (max-width: 1000px) {
   main > section, .contact-container, .contact-bottom-bar {
     max-width: 98vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 /* --- Skills Marquee Section --- */
 .skills-marquee-section {
   margin: 3rem 0 2rem 0;
-  max-width: 1000px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--main-x-padding);
@@ -1171,7 +1171,7 @@ main {
   padding-right: var(--main-x-padding);
   text-align: center;
   display: flex;
-  flex-direction: column;
+        flex-direction: column;
   align-items: center;
 }
 .github-graph-title {
@@ -1183,18 +1183,19 @@ main {
 }
 .github-graph-img-wrapper {
   display: flex;
-        justify-content: center;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
   padding: 2.5rem 0 2rem 0;
-  background:transparent;
+  background: transparent;
   border-radius: 16px;
-  
+  width: 100%;
+  overflow-x: auto;
 }
 .github-graph-img-wrapper img {
   width: 100%;
   max-width: 1200px;
-  min-width: 980px;
+  min-width: unset;
   height: auto;
   background: transparent;
   border-radius: 8px;
@@ -1212,6 +1213,9 @@ main {
 }
 @media (max-width: 700px) {
   .github-graph-img-wrapper {
-    padding: 1rem 0.2rem 1rem 0.2rem;
-    }
-} 
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  .github-graph-img-wrapper img {
+    min-width: 600px;
+  }
+}

@@ -29,7 +29,7 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section id="home" class="hero">
             <div class="status-badge">
                 <span class="status-dot"></span>
                 Available for opportunities
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <section id="tech-stack" class="tech-stack">
+        <section id="works" class="tech-stack">
             <h2 style="text-align:center">Tools that I have used</h2>
         </section>
 
@@ -87,7 +87,6 @@
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"><span>Firebase</span></div>
-                    <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx"><span>Nginx</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express"><span>Express</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"><span>TensorFlow</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" alt="Keras"><span>Keras</span></div>
@@ -108,7 +107,6 @@
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS"><span>AWS</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"><span>Azure</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode"><span>VSCode</span></div>
-                    <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity"><span>Unity</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><span>PHP</span></div>
                     <div class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
@@ -132,7 +130,7 @@
             </div>
         </section>
 
-        <section id="projects" class="projects">
+        <section id="about" class="projects">
             <h2>My Projects</h2>
             <div class="project-list">
                 <div class="project-card">
@@ -176,7 +174,7 @@
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <section id="faq" class="contact">
             <div class="contact-container">
                 <div class="contact-grid contact-new-grid">
                     <div class="contact-info">
@@ -187,39 +185,57 @@
                         <div class="contact-social-block">
                             <div class="contact-social-label">Follow me</div>
                             <div class="contact-social-icons">
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn"></a>
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></a>
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/instagram/instagram-original.svg" alt="Instagram"></a>
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Game"></a>
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" alt="YouTube"></a>
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/x/x-original.svg" alt="X"></a>
-                                <a href="#" class="contact-social-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/coffee/coffee-original.svg" alt="Coffee"></a>
-                            </div>
+  <a href="https://www.linkedin.com/in/yash-rathore-909768332/" class="contact-social-icon" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="32" height="32">
+  </a>
+  <a href="https://github.com/ash3YR" class="contact-social-icon" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="32" height="32">
+  </a>
+  <a href="twitter.html" class="contact-social-icon" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X (Twitter)" width="32" height="32">
+  </a>
+  <a href="coffee.html" class="contact-social-icon" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" width="32" height="32">
+                                    </a>
+                                </div>
+
                         </div>
                     </div>
-                    <form class="contact-form-new">
+                    <form class="contact-form-new" id="contact-form">
                         <div class="form-row">
-                            <input type="text" placeholder="Full Name" required>
-                            <input type="text" placeholder="Phone No" required>
+                            <input type="text" name="user_name" placeholder="Full Name" required>
+                            <input type="text" name="user_phone" placeholder="Phone No" required>
                         </div>
-                        <input type="email" placeholder="Email" required>
-                        <textarea placeholder="Message" required></textarea>
+                        <input type="email" name="user_email" placeholder="Email" required>
+                        <textarea name="message" placeholder="Message" required></textarea>
                         <button type="submit" class="submit-btn-new">Submit</button>
                     </form>
                 </div>
             </div>
         </section>
         <div class="contact-bottom-bar">
-            <div class="contact-bottom-left">© 2025 Developed with ❤ by Yash</div>
+            <div class="contact-bottom-left">
+                <span>© 2024 Your Name. All rights reserved.</span>
+            </div>
             <div class="contact-bottom-right">
-                <a href="#" class="contact-bottom-link">RSS FEED</a>
-                <span class="contact-bottom-sep">/</span>
-                <a href="#" class="contact-bottom-link">SITE MAP</a>
+                <a href="feed.xml" class="contact-bottom-link">RSS FEED</a>
+                <span class="contact-bottom-sep">•</span>
+                <a href="sitemap.xml" class="contact-bottom-link">SITEMAP</a>
             </div>
         </div>
     </main>
 
     <script src="script.js"></script>
     <script src="sparks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="contact.js"></script>
+    <script src="navigation.js"></script>
+    <script>
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("vUWsgs6QDCcvLe2dH");
+            console.log('EmailJS initialized');
+        })();
+    </script>
 </body>
 </html>

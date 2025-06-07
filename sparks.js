@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
 
     const sparks = [];
-    const maxSparks = 50; // Adjust this number to control the number of sparks
+    const maxSparks = 100; // Adjust this number to control the number of sparks
 
     function createSpark() {
         if (sparks.length < maxSparks) {

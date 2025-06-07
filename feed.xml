@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Your Portfolio</title>
+  <link>https://yourwebsite.com</link>
+  <description>Latest updates from my portfolio website</description>
+  <language>en-us</language>
+  <lastBuildDate>Wed, 13 Mar 2024 12:00:00 GMT</lastBuildDate>
+  
+  <item>
+    <title>Portfolio Website Launch</title>
+    <link>https://yourwebsite.com</link>
+    <description>My personal portfolio website is now live, showcasing my projects and skills.</description>
+    <pubDate>Wed, 13 Mar 2024 12:00:00 GMT</pubDate>
+  </item>
+  
+  <item>
+    <title>GitHub Contributions</title>
+    <link>https://yourwebsite.com#github-graph</link>
+    <description>View my GitHub contributions and coding activity.</description>
+    <pubDate>Wed, 13 Mar 2024 12:00:00 GMT</pubDate>
+  </item>
+  
+  <item>
+    <title>Contact Information</title>
+    <link>https://yourwebsite.com#contact</link>
+    <description>Get in touch with me for collaboration opportunities.</description>
+    <pubDate>Wed, 13 Mar 2024 12:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss> 
