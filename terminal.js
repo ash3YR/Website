@@ -165,8 +165,8 @@ function executeCommand(command) {
             break;
             
         case 'whoami':
-            output = `John Doe - Full Stack Developer<br>
-Location: San Francisco, CA<br>
+            output = `Yash Rathore - Developer<br>
+Location: Bhopal, IN<br>
 Status: Available for new opportunities<br>
 Interests: Linux, JavaScript, Python, DevOps`;
             break;
@@ -572,10 +572,10 @@ Feel free to reach out! I'm always interested in discussing new opportunities or
 • history - Command history
 • future - stuff I am working on`,
 
-            whoami: () => `Yash - Full Stack Developer
-Location: San Francisco, CA
+            whoami: () => `Yash - Developer
+Location: Bhopal, IN
 Status: Available for opportunities
-Interests: Linux, JavaScript, Python, DevOps`,
+Interests: IoT, Python, ML`,
 
             skills: () => `Technical Skills:
 
