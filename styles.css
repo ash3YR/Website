@@ -195,7 +195,7 @@ header {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 3rem;
   line-height: 1.8;
-  max-width: 2000px;
+  max-width: 1000px;
 }
 
 .hero-description {
@@ -372,7 +372,7 @@ header {
 
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 3.5rem;
+    font-size: 9rem;
   }
 
   .hero-subtitle {
@@ -382,7 +382,7 @@ header {
   .hero-buttons {
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
   }
 
