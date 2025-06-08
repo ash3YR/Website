@@ -468,6 +468,8 @@ header {
   -webkit-backdrop-filter: blur(5px);
 }
 
+
+
 .tech-stack h2 {
   font-family: var(--heading-font);
   font-size: 2.5rem;
@@ -476,6 +478,12 @@ header {
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
+
+@media (max-width: 1000px) {
+  .tech-stack h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem;
+  }}
 
 .tech-grid {
   display: grid;
@@ -519,6 +527,8 @@ header {
   max-width: 978px;
 }
 
+
+
 .projects h2 {
   font-family: var(--heading-font);
   font-size: 2.5rem;
@@ -528,6 +538,7 @@ header {
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
+
 
 .project-list {
   
@@ -630,7 +641,7 @@ header {
   }
 
   .projects h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 3rem;
   }
 
