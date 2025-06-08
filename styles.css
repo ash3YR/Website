@@ -566,7 +566,7 @@ header {
   right: 0;
   bottom: 0;
   border-radius: 16px;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.03), transparent);
+  background: linear-gradient(to bottom right, rgba(27, 26, 26, 0.03), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
