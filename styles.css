@@ -179,6 +179,7 @@ header {
   max-width: 800px;
 }
 
+
 .hero h1 {
   font-family: var(--heading-font);
   font-size: 5rem;
@@ -195,6 +196,15 @@ header {
   margin-bottom: 3rem;
   line-height: 1.8;
 }
+
+.hero-description {
+  font-family: var(--body-font);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
 
 .hero-buttons {
   display: flex;
